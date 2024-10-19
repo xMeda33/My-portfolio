@@ -20,6 +20,39 @@ const variants = {
 };
 
 function Services() {
+  const skills = [
+    {
+      id: 1,
+      name: "JavaScript",
+      description: "A versatile programming language for web development.",
+    },
+    {
+      id: 2,
+      name: "Node.js",
+      description:
+        "A runtime environment for executing JavaScript on the server.",
+    },
+    {
+      id: 3,
+      name: "React",
+      description:
+        "A powerful JavaScript library for building user interfaces.",
+    },
+    {
+      id: 4,
+      name: "Next.js (Currently learning)",
+      description:
+        "A React framework for building server-side rendered applications.",
+    },
+  ];
+  const scrollToSection = (e, id) => {
+    e.preventDefault(); // Prevent the default anchor behavior
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const ref = useRef();
   const isInView = useInView(ref, { margin: "100px" });
   return (
@@ -31,79 +64,43 @@ function Services() {
       animate={isInView && "animate"}
     >
       <motion.div className="text-container" variants={variants}>
-        <p>
-          I focus on helping your brand grow <br /> and move forward
-        </p>
+        <p>My skills</p>
         <hr />
       </motion.div>
       <motion.div className="title-container" variants={variants}>
         <div className="title">
-          <img src="/people.webp" alt="" />
+          <img src="/code.png" alt="" />
           <h1>
-            <motion.b whileHover={{ color: "orange" }}>Unique</motion.b> Ideas
+            <motion.b whileHover={{ color: "orange" }}>Skills</motion.b> and
           </h1>
         </div>
         <div className="title">
           <h1>
-            <motion.b whileHover={{ color: "orange" }}>For Your</motion.b>{" "}
-            Business.
+            <motion.b whileHover={{ color: "orange" }}>Technologies</motion.b> I
+            know.
           </h1>
           <button>WHAT WE DO?</button>
         </div>
       </motion.div>
       <motion.div className="list-container" variants={variants}>
-        <motion.div
-          whileHover={{ background: "lightgray", color: "black" }}
-          className="box"
-        >
-          <h2>Branding</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            delectus mollitia culpa repellat blanditiis! Nam est aliquam
-            recusandae! Modi natus voluptatem nihil voluptate. Beatae voluptatem
-            ducimus, hic natus corrupti nulla?
-          </p>
-          <button>GO</button>
-        </motion.div>
-        <motion.div
-          whileHover={{ background: "lightgray", color: "black" }}
-          className="box"
-        >
-          <h2>Branding</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            delectus mollitia culpa repellat blanditiis! Nam est aliquam
-            recusandae! Modi natus voluptatem nihil voluptate. Beatae voluptatem
-            ducimus, hic natus corrupti nulla?
-          </p>
-          <button>GO</button>
-        </motion.div>
-        <motion.div
-          whileHover={{ background: "lightgray", color: "black" }}
-          className="box"
-        >
-          <h2>Branding</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            delectus mollitia culpa repellat blanditiis! Nam est aliquam
-            recusandae! Modi natus voluptatem nihil voluptate. Beatae voluptatem
-            ducimus, hic natus corrupti nulla?
-          </p>
-          <button>GO</button>
-        </motion.div>
-        <motion.div
-          whileHover={{ background: "lightgray", color: "black" }}
-          className="box"
-        >
-          <h2>Branding</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            delectus mollitia culpa repellat blanditiis! Nam est aliquam
-            recusandae! Modi natus voluptatem nihil voluptate. Beatae voluptatem
-            ducimus, hic natus corrupti nulla?
-          </p>
-          <button>GO</button>
-        </motion.div>
+        {skills.map((skill) => (
+          <motion.div
+            key={skill.id}
+            whileHover={{ background: "lightgray", color: "black" }}
+            className="box"
+          >
+            <h2>{skill.name}</h2>
+            <p>{skill.description}</p>
+            <button>
+              <a
+                href="#Portfolio"
+                onClick={(e) => scrollToSection(e, "Portfolio")}
+              >
+                GO
+              </a>
+            </button>
+          </motion.div>
+        ))}
       </motion.div>
     </motion.div>
   );

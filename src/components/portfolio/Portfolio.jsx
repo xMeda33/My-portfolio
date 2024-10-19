@@ -5,27 +5,27 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 const items = [
   {
     id: 1,
-    title: "React e-commerce",
-    img: "/people.webp",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolorum maxime nesciunt omnis quisquam accusamus corrupti, aliquid consequuntur quaerat iure necessitatibus a minima aliquam? Sequi possimus eos incidunt quasi assumenda.",
+    title: "Travelling agency",
+    img: "/skypoint.png",
+    desc: `• Implemented frontend for company’s web application using ReactJs.
+• Was able to use RESTful APIs to make the website dynamic and easy to update.
+• Responsible for the UI/UX design for the application.`,
+    link: "https://skypoint.fi",
   },
+
   {
     id: 2,
-    title: "NextJS e-commerce",
-    img: "https://www.pexels.com/photo/person-holding-debit-card-50987/",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolorum maxime nesciunt omnis quisquam accusamus corrupti, aliquid consequuntur quaerat iure necessitatibus a minima aliquam? Sequi possimus eos incidunt quasi assumenda.",
-  },
-  {
-    id: 3,
-    title: "Me e-commerce",
-    img: "https://www.pexels.com/photo/hands-on-a-laptop-keyboard-5474295/",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolorum maxime nesciunt omnis quisquam accusamus corrupti, aliquid consequuntur quaerat iure necessitatibus a minima aliquam? Sequi possimus eos incidunt quasi assumenda.",
-  },
-  {
-    id: 4,
-    title: "GG e-commerce",
-    img: "https://www.pexels.com/photo/close-up-photo-of-codes-1089440/",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolorum maxime nesciunt omnis quisquam accusamus corrupti, aliquid consequuntur quaerat iure necessitatibus a minima aliquam? Sequi possimus eos incidunt quasi assumenda.",
+    title: "Online Bookstore",
+    img: "/bookstore.png",
+    desc: `• Developed RESTful APIs using Node.js and Express for core functionalities like product management, user authentication, and order 
+processing.
+ • Integrated Stripe for secure payment processing, enabling customers to complete transactions using various payment methods
+• Built the customer-facing storefront using React and TailwindCSS, allowing users to browse products, add items to the cart, and complete the 
+checkout process.
+• Utilized Material-UI (MUI) for the Admin Dashboard, providing a modern and responsive UI for managing products, categories, orders, and 
+users.
+ `,
+    link: "https://bookstore-pearl-seven.vercel.app/",
   },
 ];
 
@@ -36,7 +36,7 @@ const Single = ({ item }) => {
   });
   const y = useTransform(scrollYProgress, [0, 1], [-1000, 1000]);
   return (
-    <section >
+    <section>
       <div className="container">
         <div className="wrapper">
           <div className="imageContainer" ref={ref}>
@@ -44,8 +44,18 @@ const Single = ({ item }) => {
           </div>
           <motion.div className="text-container" style={{ y }}>
             <h2>{item.title}</h2>
-            <p>{item.desc}</p>
-            <button>See Demo</button>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: item.desc
+                  .replace(/\n/g, "<br />")
+                  .replace(/•/g, "<span>&#8226;</span>"),
+              }}
+            ></p>
+            <button>
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
+                See demo
+              </a>
+            </button>
           </motion.div>
         </div>
       </div>
