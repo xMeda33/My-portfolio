@@ -27,6 +27,31 @@ users.
  `,
     link: "https://bookstore-pearl-seven.vercel.app/",
   },
+  {
+    id: 3,
+    title: "Cabin booking dashboard",
+    img: "/cabin-home.png",
+    desc: `Web application that enables admins to manage for users, cabins and cabin bookings for each user with an easy to use UI and charts for bookings. You can use admin@admin.com and for the password admin to login and view the project
+ `,
+    link: "https://the-wild-oasis-dashboard-two.vercel.app/login",
+  },
+  {
+    id: 4,
+    title: "Chat-app",
+    img: "/chat.png",
+    desc: `A comprehensive chat platform that allows users to join chat rooms and exchange messages in real-time. Built with React, Node.js, and Socket.io, it features real-time messaging, typing indicators, and a responsive design for seamless communication.
+ `,
+    link: "https://github.com/xMeda33/chat-app",
+  },
+  {
+    id: 5,
+    title: "Cabin booking app",
+    img: "/cabin.png",
+    desc: `Web application that enables users to browse and book cabins, manage their profiles and cabin bookings with an easy to use UI.
+ `,
+    link: "https://github.com/xMeda33/the-wild-oasis-customers",
+  },
+  
 ];
 
 const Single = ({ item }) => {

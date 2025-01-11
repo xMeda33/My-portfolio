@@ -40,7 +40,7 @@ function Services() {
     },
     {
       id: 4,
-      name: "Next.js (Currently learning)",
+      name: "Next.js",
       description:
         "A React framework for building server-side rendered applications.",
     },
